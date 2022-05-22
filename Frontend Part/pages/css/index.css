@@ -1,0 +1,34 @@
+
+:root {
+    --ass: #2980B9;
+    --green: #4BEFB0;
+    --black: #000000;
+    --light-blue: #96BAED;
+    --gray: #333333;
+    --white: #fff;
+}
+
+
+/* navbar active section start  */
+
+.navbar-nav>li>a.active,
+.navbar-nav>li>a:focus {
+    margin-top: 7px;
+    line-height: 10px;
+    width: 100%;
+    margin-top: 7px;
+    text-align: center;
+    background-color: var(--yellow);
+    color: var(--black) !important;
+    border-radius: 5px;
+}
+
+.navbar-color{
+    background-color: var(--ass);
+    color: var(--white);
+}
+
+/* slider part */
+.carousel-item > img {
+    height: 500px;
+}
