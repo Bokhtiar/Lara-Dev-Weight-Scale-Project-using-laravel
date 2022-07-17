@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,16 @@ Route::group(["as"=>'user.', "prefix"=>'user',  "middleware"=>['auth','user']],f
 
 Route::group(["as"=>'admin.', "prefix"=>'admin', "middleware"=>['auth','admin']],function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // permission
+    // Route::get('permission/index', [PermissionController::class, 'index'])->name('permission.index');
+    // Route::get('permission/create', [PermissionController::class, 'create'])->name('permission.create');
+    // Route::post('permission/store', [PermissionController::class, 'store']);
+    // Route::get('permission/edit/{id}', [PermissionController::class, 'edit']);
+    // Route::post('permission/update/{id}', [PermissionController::class, 'update']);
+    Route::resource('permission', PermissionController::class);
+
+    //role
+    Route::resource('role', RoleController::class);
+
 });
