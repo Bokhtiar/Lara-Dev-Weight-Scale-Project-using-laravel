@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $permissions = Permission::all();
+        return view('acl.permission.index', compact('permissions'));
     }
 
     /**
@@ -24,7 +21,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('acl.permission.create');
     }
 
     /**
@@ -35,18 +32,12 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        try {
+            Permission::create($request->all());
+            return redirect()->route('admin.permission.index');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.role.index')->with('error', 'something wrong');
+        }
     }
 
     /**
@@ -57,7 +48,8 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission = Permission::find($id);
+        return view('acl.permission.edit', compact('permission'));
     }
 
     /**
@@ -69,17 +61,13 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $permission = Permission::find($id);
+        $permission->update($request->all());
+        return redirect()->route('admin.permission.index')->with('success', 'Updated Successfully');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.permission.index')->with('error', 'Someting Wrong');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
