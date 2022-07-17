@@ -192,13 +192,8 @@
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="@route('admin.role.index')">
               <i class="bi bi-circle"></i><span>List Of Role</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Create Of Role</span>
             </a>
           </li>
         </ul>
