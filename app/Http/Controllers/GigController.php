@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gig;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GigController extends Controller
 {
@@ -13,7 +16,13 @@ class GigController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $gigs = Gig::where('user_id', Auth::id())
+                ->get(['title', 'body', 'gig_id']);
+            return view('modules.gig.createOrUpdate', compact('gigs'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**
@@ -23,7 +32,13 @@ class GigController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            $gigs = Gig::where('user_id', Auth::id())
+                ->get(['title', 'body', 'gig_id']);
+            return view('modules.gig.createOrUpdate', compact('gigs'));
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -34,19 +49,30 @@ class GigController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validated = Gig::query()->Validation($request->all());
+
+        if ($validated) {
+            try {
+                DB::beginTransaction();
+                $gig = Gig::create([
+                    'title' => $request->title,
+                    'user_id' => Auth::id(),
+                    'body' => $request->body,
+                ]);
+
+                if (!empty($gig)) {
+                    DB::commit();
+                    return redirect()->route('git.create')->with('success', 'Gig Created successfully!');
+                }
+                throw new \Exception('Invalid About Information');
+            } catch (\Exception $ex) {
+                return back()->withError($ex->getMessage());
+                DB::rollBack();
+            }
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -56,7 +82,14 @@ class GigController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $edit = Gig::find($id);
+            $gigs = Gig::where('user_id', Auth::id())
+                ->get(['title', 'body', 'gig_id']);
+            return view('modules.gig.createOrUpdate', compact('gigs', 'edit'));
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -68,7 +101,28 @@ class GigController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = Gig::query()->Validation($request->all());
+
+        if ($validated) {
+            try {
+                DB::beginTransaction();
+                $gig = Gig::find($id);
+                $gigU = $gig->update([
+                    'title' => $request->title,
+                    'user_id' => Auth::id(),
+                    'body' => $request->body,
+                ]);
+
+                if (!empty($gigU)) {
+                    DB::commit();
+                    return redirect()->route('git.create')->with('success', 'Gig Updated successfully!');
+                }
+                throw new \Exception('Invalid About Information');
+            } catch (\Exception $ex) {
+                return back()->withError($ex->getMessage());
+                DB::rollBack();
+            }
+        }
     }
 
     /**
@@ -79,6 +133,11 @@ class GigController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Gig::find($id)->delete();
+            return back()->with('success', 'Deleted Successfully');
+        } catch (\Throwable $th) {
+            return back()->withError($th->getMessage());
+        }
     }
 }
