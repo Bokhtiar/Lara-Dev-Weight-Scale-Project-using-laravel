@@ -31,11 +31,25 @@ Route::group(["as"=>'user.', "prefix"=>'user',  "middleware"=>['auth','user']],f
 });
 
 Route::group(["middleware"=>['auth']],function(){
+    Route::get('gig/list', [App\Http\Controllers\GigController::class, 'gigList'])->name('gig.list');
     Route::resource('gig', GigController::class);
+
+    //driver
+    Route::get('driver', [App\Http\Controllers\DriverController::class, 'driver'])->name('driver');
+
+    //request
+    Route::get('request/{id}', [App\Http\Controllers\RequestWorkController::class, 'requestDriver'])->name('request');
+    Route::get('work/status', [App\Http\Controllers\RequestWorkController::class, 'requestWork']);
+    Route::get('driver/accept/{id}', [App\Http\Controllers\RequestWorkController::class, 'driverAccept']);
+    Route::post('request/work/store/{id}', [App\Http\Controllers\RequestWorkController::class, 'workStore']);
+    Route::get('user/get/{id}', [App\Http\Controllers\RequestWorkController::class, 'userget']);
+    
+
 });
 
 Route::group(["as"=>'admin.', "prefix"=>'admin', "middleware"=>['auth','admin']],function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
+    
 
     // permission
     // Route::get('permission/index', [PermissionController::class, 'index'])->name('permission.index');
@@ -49,3 +63,4 @@ Route::group(["as"=>'admin.', "prefix"=>'admin', "middleware"=>['auth','admin']]
     Route::resource('role', RoleController::class);
 
 });
+Route::get('logout', [App\Http\Controllers\Admin\AdminDashboardController::class, 'logout'])->name('logout');

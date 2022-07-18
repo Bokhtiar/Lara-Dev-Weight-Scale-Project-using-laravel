@@ -140,4 +140,9 @@ class GigController extends Controller
             return back()->withError($th->getMessage());
         }
     }
+
+    public function gigList(){ //this method user can see the gig list
+        $gigs = Gig::all();
+        return view('modules.gig.list', compact('gigs'));
+    }
 }

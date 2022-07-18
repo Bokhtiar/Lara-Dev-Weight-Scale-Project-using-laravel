@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminDashboardController extends Controller
+class DriverController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function driver()
     {
-        return view('admin.index');
+        $drivers = User::where('role_id', 3)->get();
+        return view('modules.driver.list', compact('drivers'));
     }
 
     /**
@@ -23,10 +23,9 @@ class AdminDashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function logout()
+    public function create()
     {
-        Auth::logout();
-        return redirect('/');
+        //
     }
 
     /**

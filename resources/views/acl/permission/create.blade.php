@@ -74,10 +74,19 @@
                     <tr>
                         <td>gig</td>
                         <td><input type="checkbox" name="permission[gig][add]" value="1"></td>
-                        <td><input type="checkbox" name="permission[git][edit]" value="1"></td>
-                        <td><input type="checkbox" name="permission[git][view]" value="1"></td>
-                        <td><input type="checkbox" name="permission[git][delete]" value="1"></td>
-                        <td><input type="checkbox" name="permission[git][list]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][list]" value="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Driver</td>
+                        <td><input type="checkbox" name="permission[driver][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[driver][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[driver][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[driver][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[driver][list]" value="1"></td>
                     </tr>
                     </tbody>
                 </table>

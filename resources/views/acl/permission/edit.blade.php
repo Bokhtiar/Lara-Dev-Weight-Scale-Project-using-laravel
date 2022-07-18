@@ -187,6 +187,37 @@
                         </tr>
                         <!-- gig end -->
 
+                        <!-- category end -->
+                        <tr>
+                            <td>Driver</td>
+                            <td>
+                                <input type="checkbox" name="permission[driver][add]"
+                                       @isset($permission['permission']['driver']['add']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[driver][edit]"
+                                       @isset($permission['permission']['driver']['edit']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[driver][view]"
+                                       @isset($permission['permission']['driver']['view']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[driver][delete]"
+                                       @isset($permission['permission']['driver']['delete']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[driver][list]"
+                                       @isset($permission['permission']['driver']['list']) checked @endisset
+                                       value="1">
+                            </td>
+                        </tr>
+                        <!-- driver end -->
+
                        
 
 
