@@ -33,6 +33,25 @@
         </a>
       </li><!-- End gig show Page Nav -->
   
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#blog-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Blogs</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="blog-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="@route('admin.blog.index')">
+              <i class="bi bi-circle"></i><span> Blog List</span>
+            </a>
+          </li>
+          <li>
+            <a href="@route('admin.blog.create')">
+              <i class="bi bi-circle"></i><span>Blog Create</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End permission Nav -->
+
 
 
       <li class="nav-heading">Setting</li>
