@@ -42,7 +42,6 @@
                                     <th scope="col">SL</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Image</th>
-                                    <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -61,15 +60,7 @@
                                                     width="50px" alt=""> </td>
                                         @endif
 
-                                        <td>
-                                            @if ($item->status == 1)
-                                                <a class="btn btn-sm btn-success" href="@route('admin.service.status', $item->service_id)"><i
-                                                        class="bi bi-check-circle"></i></a>
-                                            @else
-                                                <a class="btn btn-warning btn-sm" href="@route('admin.service.status', $item->service_id)"><i
-                                                        class="bi bi-exclamation-triangle"></i></a>
-                                            @endif
-                                        </td>
+                                        
                                         <td class="form-inline">
                                             <a class="btn btn-sm btn-info text-light" href="@route('admin.service.show', $item->service_id)"> <i
                                                     class="ri-eye-fill"></i></a>
