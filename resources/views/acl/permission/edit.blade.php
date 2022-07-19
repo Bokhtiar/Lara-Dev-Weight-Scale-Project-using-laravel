@@ -187,7 +187,7 @@
                         </tr>
                         <!-- gig end -->
 
-                        <!-- category end -->
+                        <!-- driver end -->
                         <tr>
                             <td>Driver</td>
                             <td>
@@ -217,6 +217,70 @@
                             </td>
                         </tr>
                         <!-- driver end -->
+
+
+                        <!-- service end -->
+                        <tr>
+                            <td>Service</td>
+                            <td>
+                                <input type="checkbox" name="permission[service][add]"
+                                       @isset($permission['permission']['service']['add']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[service][edit]"
+                                       @isset($permission['permission']['service']['edit']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[service][view]"
+                                       @isset($permission['permission']['service']['view']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[service][delete]"
+                                       @isset($permission['permission']['service']['delete']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[service][list]"
+                                       @isset($permission['permission']['service']['list']) checked @endisset
+                                       value="1">
+                            </td>
+                        </tr>
+                        <!-- service end -->
+
+
+                        <!-- blog end -->
+                        <tr>
+                            <td>Blog</td>
+                            <td>
+                                <input type="checkbox" name="permission[blog][add]"
+                                       @isset($permission['permission']['blog']['add']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[blog][edit]"
+                                       @isset($permission['permission']['blog']['edit']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[blog][view]"
+                                       @isset($permission['permission']['blog']['view']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[blog][delete]"
+                                       @isset($permission['permission']['blog']['delete']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[blog][list]"
+                                       @isset($permission['permission']['blog']['list']) checked @endisset
+                                       value="1">
+                            </td>
+                        </tr>
+                        <!-- blog end -->
 
                        
 

@@ -88,6 +88,24 @@
                         <td><input type="checkbox" name="permission[driver][delete]" value="1"></td>
                         <td><input type="checkbox" name="permission[driver][list]" value="1"></td>
                     </tr>
+
+                    <tr>
+                        <td>Service</td>
+                        <td><input type="checkbox" name="permission[service][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][list]" value="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Blog</td>
+                        <td><input type="checkbox" name="permission[blog][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[blog][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[blog][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[blog][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[blog][list]" value="1"></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
