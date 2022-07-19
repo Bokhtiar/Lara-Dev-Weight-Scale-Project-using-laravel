@@ -60,18 +60,22 @@
       <div class="row justify-content-center my-5">
         <div class="col-md-7 my-5">
             <div class="row why-content">
+                @foreach ($servies as $ser)
                 <div class="col-md-4 text-center">
                     <div class="container ">
-                        <img height="80px"  src="{{ asset('user') }}/public//icon/icons8-weight-scale-64.png" alt="">
-                        <p class="h5 text-dark">Weight Scale Can any product measurement</p>
+                        @php
+                        $image = json_decode($ser->image);
+                        @endphp
+                        @if (empty($image))
+                        <td>Image Not Selected</td>
+                        @else
+                            <td><img class="zoom" src="{{ asset($image[0]) }}" height="80px" alt=""> </td>
+                        @endif
+                        
+                        <p class="h5 text-dark">{{ $ser->name }}</p>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <div class="container ">
-                        <img height="80px" src="{{ asset('user') }}/public/icon/icons8-truck-48.png" alt="">
-                        <p class="h5 text-dark">User Can hire Driver</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
       </div>
@@ -82,24 +86,22 @@
     <section class="container" >
       <h2 class="text-center text-uppercase text-dark"><br> Our Blogs</h2><hr>
             <div class="row why-content">
+                @foreach ($blogs as $blog)
                 <div class="col-md-4 col-lg-4 col-sm-12 text-center">
                     <div class="container ">
-                        <img height="164px"  src="{{ asset('user') }}/public/blog/b1.jpg" alt=""><br>
-                        <a  href="singleBlog.html" class="h5 text-dark my-3">Need any help or have any queries about local moving services in Christchurch</a>
+                        @php
+                        $image = json_decode($blog->image);
+                        @endphp
+                        @if (empty($image))
+                        <td>Image Not Selected</td>
+                        @else
+                            <td><img class="zoom" src="{{ asset($image[0]) }}"  height="164px" alt=""> </td>
+                        @endif
+                        <br>
+                        <a  href="@route('blog', $blog->blog_id)" class="h5 text-dark my-3">{{ $blog->title }}</a>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-sm-12 text-center">
-                    <div class="container ">
-                        <img height="164px" src="{{ asset('user') }}/public/blog/b2.jpg" alt=""><br>
-                        <a href="singleBlog.html" class="h5 text-dark my-3">Camry Digital Weight Machine/ Weight scale (AS PER GIVEN MODELS) .</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-12 text-center">
-                    <div class="container ">
-                        <img height="164px" src="{{ asset('user') }}/public/blog/b3.jpg" alt=""><br>
-                        <a href="singleBlog.html" class="h5 text-dark my-3">A work-in-progress (WIP) is a partially finished good awaiting</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
     </section>
     <!--end blog section-->

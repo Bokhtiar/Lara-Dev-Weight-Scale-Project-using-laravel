@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\GigController;
+use App\Models\Blog;
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +22,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.index');
+    $servies = Service::all();
+    $blogs = Blog::all();
+    return view('user.index', compact('servies', 'blogs'));
 });
+Route::get('/blog/{id}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog');
+
+
 
 Auth::routes();
 
