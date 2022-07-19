@@ -4,34 +4,9 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb container">
       <li class="breadcrumb-item "><a class="text-dark" href="#">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">About</li>
+      <li class="breadcrumb-item active" aria-current="page">Contact-us</li>
     </ol>
   </nav>
-
-      <!--about us start here-->
-        <div class="row justify-content-center ">
-
-            <div class="col-md-10">
-                <h2 class="text-center my-5">About Us</h2>
-                <div class="row">
-                    <div class="col-md-4 col-lg-4 col-sm-12 my-3 text-center">
-                        <img height="150px" src="{{ asset('user') }}/public//icon//truck.gif" alt="">
-                    </div>
-                    <div class="col-md-8 col-lg-8 col-sm-12">
-                        <p class="lead">
-                             This Project Name is Weight Scale, There are three role name is Admin, User, Sellers, Driver, User can hire Driver User can request driver then when driver
-                            accept the request then user can seller information send him , then when driver get the product and update this website user can see the details infomation, and seller
-                            can see the details how many product get him and details information and admin can each and everything controll the website
-
-                            [Nb : user find truck and send him details information seller then select select_seller productDetails information input then user can see the details information when truck
-                            delevery complete then status change ]
-
-                            </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      <!--about us end here-->
 
 
       <!--contact form start here-->
@@ -41,20 +16,21 @@
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <form action="">
+                            <form action="@route('contact.store')" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label for="">Enter Your Name:</label>
-                                    <input type="text" class="form-control" name="" placeholder="type here name" id="">
+                                    <input type="text" class="form-control" name="name" placeholder="type here name" id="">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Enter Your E-mail:</label>
-                                    <input type="text" class="form-control" name="" placeholder="type here email" id="">
+                                    <input type="text" class="form-control" name="email" placeholder="type here email" id="">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Enter Your Message:</label>
-                                    <textarea name="" id="" cols="10" rows="4" class="form-control" placeholder="type here message"></textarea>
+                                    <textarea name="body" id="" cols="10" rows="4" class="form-control" placeholder="type here message"></textarea>
                                 </div>
 
                                 <div class="form-gorup my-2">
@@ -70,4 +46,4 @@
             </div>
         </section>
       <!--contact form end here-->
-@endsection
+      @endsection

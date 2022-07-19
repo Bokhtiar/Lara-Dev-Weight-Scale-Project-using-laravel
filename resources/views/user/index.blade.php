@@ -1,5 +1,6 @@
 @extends('layouts.user.app')
 @section('user_content')
+<x-notification></x-notification>
     <!--slider start here-->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">

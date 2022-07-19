@@ -29,6 +29,8 @@ Route::get('/', function () {
 Route::get('/blog/{id}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog');
 Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs');
 Route::get('/about', [App\Http\Controllers\User\UserDashboardController::class, 'about'])->name('about');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'create'])->name('contact');
+Route::post('/contact/store', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 
 
 
