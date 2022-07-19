@@ -17,6 +17,7 @@ class CreateRequestWorksTable extends Migration
             $table->id('request_work_id');
             $table->integer('user_id');
             $table->integer('driver_id');
+            $table->string('seller_id')->nullable();
             $table->longText('body')->nullable();
             $table->tinyInteger('driver_status')->default(0);
             $table->tinyInteger('user_status')->default(0);

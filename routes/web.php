@@ -43,7 +43,8 @@ Route::group(["middleware"=>['auth']],function(){
     Route::get('driver/accept/{id}', [App\Http\Controllers\RequestWorkController::class, 'driverAccept']);
     Route::post('request/work/store/{id}', [App\Http\Controllers\RequestWorkController::class, 'workStore']);
     Route::get('user/get/{id}', [App\Http\Controllers\RequestWorkController::class, 'userget']);
-    
+    Route::get('seller/status/{id}', [App\Http\Controllers\RequestWorkController::class, 'sellerStatus']);
+
 
 });
 

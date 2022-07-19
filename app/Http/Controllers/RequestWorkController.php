@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RequestWork;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,7 @@ class RequestWorkController extends Controller
         $req->user_id = Auth::id();
         $req->driver_id = $id;
         $req->save();
-        return back();
+        return back()->with('success', 'Request Sended To Driver');
     }   
 
     /**
@@ -31,12 +32,13 @@ class RequestWorkController extends Controller
     {
         if(Auth::user()->role_id == 2){
             $works = RequestWork::where('user_id', Auth::id())->where('driver_status', 1)->get();
-            return view('modules.work.list', compact('works'));
+            $sellers = User::where('role_id', 4)->get();
+            return view('modules.work.list', compact('works', 'sellers'));
         }elseif(Auth::user()->role_id == 3){
             $works = RequestWork::where('driver_id', Auth::id())->get();
             return view('modules.work.list', compact('works'));
         }elseif(Auth::user()->role_id == 4){
-            $works = RequestWork::where('driver_id', Auth::id())->get();
+            $works = RequestWork::where('seller_id', Auth::id())->get();
             return view('modules.work.list', compact('works'));
         }else{
             dd('5');
@@ -73,6 +75,7 @@ class RequestWorkController extends Controller
     {
         $work = RequestWork::find($id);
         $work->body = $request->body;
+        $work->seller_id = $request->seller_id;
         $work->save();
         return back();
     }
@@ -104,9 +107,18 @@ class RequestWorkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function sellerStatus($id)
     {
-        //
+        $model = RequestWork::find($id);
+        if($model->seller_status == 0){
+            $model->seller_status = 1;
+            $model->save();
+            return back();
+        }else{
+            $model->seller_status = 0;
+            $model->save();
+            return back();
+        }
     }
 
     /**

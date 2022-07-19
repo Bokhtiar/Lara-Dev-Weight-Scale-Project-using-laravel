@@ -17,6 +17,7 @@ class RequestWork extends Model
     protected $fillable = [
         'user_id',
         'driver_id',
+        'seller_id',
         'body',
         'driver_status',
         'user_status',
@@ -30,6 +31,10 @@ class RequestWork extends Model
     }
 
     public function driver(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function seller(){
         return $this->belongsTo(User::class);
     }
 }
