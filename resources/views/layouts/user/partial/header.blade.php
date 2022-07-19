@@ -13,13 +13,13 @@
               <a class="nav-link text-light" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="service.html">Service</a>
+              <a class="nav-link text-light" href="{{ url('/') }}#service">Service</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="about.html">About</a>
+                <a class="nav-link text-light" href="@route('about')">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="blogs.html">Blogs</a>
+              <a class="nav-link text-light" href="@route('blogs')">Blogs</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="contact.html">Contact</a>

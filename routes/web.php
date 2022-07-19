@@ -27,6 +27,8 @@ Route::get('/', function () {
     return view('user.index', compact('servies', 'blogs'));
 });
 Route::get('/blog/{id}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog');
+Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs');
+Route::get('/about', [App\Http\Controllers\User\UserDashboardController::class, 'about'])->name('about');
 
 
 

@@ -55,7 +55,7 @@
     <!--why Weight Scale end-->
 
     <!--services start -->
-    <section class="" >
+    <section class="" id="service" >
       <h2 class="text-center text-uppercase text-dark"><br> Our Services</h2>
       <div class="row justify-content-center my-5">
         <div class="col-md-7 my-5">
