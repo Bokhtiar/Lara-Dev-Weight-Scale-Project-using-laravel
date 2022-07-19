@@ -1,6 +1,6 @@
 <section class="navbar-color">
     <nav class="navbar navbar-expand-lg navbar-light container">
-        <a class="navbar-brand text-light" href="#">
+        <a class="navbar-brand text-light" href="{{ url('/') }}">
             <img height="40px" src="{{ asset('user') }}/public/icon/truck.gif" alt="">
             Weight Scale</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
