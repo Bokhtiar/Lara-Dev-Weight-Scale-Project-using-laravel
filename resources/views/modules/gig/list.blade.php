@@ -13,6 +13,7 @@
                       <p class="card-text">{{ $item->body }}.</p>
                       <a href="#" class="card-link">{{ $item->user ? $item->user->name : "" }}</a>
                       <a href="#" class="card-link">{{ $item->user ? $item->user->email : "" }}</a>
+                      <a class="card-link" href="@route('driver')" class="card-link">Driver</a>
                     </div>
                 </div>
             </div>

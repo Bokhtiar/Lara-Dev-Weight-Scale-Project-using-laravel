@@ -106,6 +106,15 @@
                         <td><input type="checkbox" name="permission[blog][delete]" value="1"></td>
                         <td><input type="checkbox" name="permission[blog][list]" value="1"></td>
                     </tr>
+
+                    <tr>
+                        <td>Contact</td>
+                        <td><input type="checkbox" name="permission[contact][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][list]" value="1"></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

@@ -282,6 +282,38 @@
                         </tr>
                         <!-- blog end -->
 
+
+                        <!-- blog end -->
+                        <tr>
+                            <td>contact</td>
+                            <td>
+                                <input type="checkbox" name="permission[contact][add]"
+                                       @isset($permission['permission']['contact']['add']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[contact][edit]"
+                                       @isset($permission['permission']['contact']['edit']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[contact][view]"
+                                       @isset($permission['permission']['contact']['view']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[contact][delete]"
+                                       @isset($permission['permission']['contact']['delete']) checked @endisset
+                                       value="1">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="permission[contact][list]"
+                                       @isset($permission['permission']['contact']['list']) checked @endisset
+                                       value="1">
+                            </td>
+                        </tr>
+                        <!-- blog end -->
+
                        
 
 

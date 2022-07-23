@@ -31,7 +31,7 @@ Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->nam
 Route::get('/about', [App\Http\Controllers\User\UserDashboardController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'create'])->name('contact');
 Route::post('/contact/store', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
-
+Route::get('/profile', [App\Http\Controllers\User\UserDashboardController::class, 'profile'])->name('profile');
 
 
 Auth::routes();
@@ -82,3 +82,4 @@ Route::group(["as"=>'admin.', "prefix"=>'admin', "middleware"=>['auth','admin']]
 
 });
 Route::get('logout', [App\Http\Controllers\Admin\AdminDashboardController::class, 'logout'])->name('logout');
+Route::get('contact', [App\Http\Controllers\Admin\AdminDashboardController::class, 'contact'])->name('contact');

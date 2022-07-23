@@ -8,15 +8,13 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      @isset(auth()->user()->role->permission['permission']['gig']['list'])
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="@route('gig.list')">
           <i class="bi bi-file-earmark"></i>
-          <span>Gig</span>
+          <span>All Seller Gig</span>
         </a>
       </li><!-- End gig show Page Nav -->
-      @endisset
-
       @isset(auth()->user()->role->permission['permission']['driver']['list'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="@route('driver')">
@@ -82,7 +80,7 @@
 
 
       <li class="nav-heading">Setting</li>
-
+      @isset(auth()->user()->role->permission['permission']['permission']['add'])
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#acl-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bar-chart"></i><span>Permission</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -105,21 +103,22 @@
           </li>
         </ul>
       </li><!-- End permission Nav -->
-
+      @endisset
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="@route('profile')">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
+      @isset(auth()->user()->role->permission['permission']['contact']['list'])
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="@route('contact')">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
-
+      @endisset
       @isset(auth()->user()->role->permission['permission']['gig']['list'])
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#git-nav" data-bs-toggle="collapse" href="#">
